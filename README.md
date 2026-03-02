@@ -1,53 +1,31 @@
-# Rolldeck Pro (MERN)
+# Client — rolldeck-pro
 
-This project is a MERN-style site: **React (Vite) client** + **Express API** + **MongoDB (optional in dev)**.
-
-The UI is inspired by the layout of [Acidtest Design](https://www.acidtestdesign.com/) but uses your own text and data.
-
-## Run locally
-
-### 1) Install dependencies
+Local development (client):
 
 ```bash
+cd client
 npm install
-npm install --prefix server
-npm install --prefix client
+npm run dev
 ```
 
-### 2) Start dev servers
+App runs on Vite (default port changed if occupied). Tailwind is configured via `tailwind.config.cjs` and PostCSS in `postcss.config.cjs`.
 
-Start the API:
+Notes:
+- GSAP animations and parallax hooks are preserved in components.
+- If you see dependency vulnerabilities, run `npm audit` and `npm audit fix`.
+# React + Vite
 
-```bash
-npm run dev --prefix server
-```
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Start the client:
+Currently, two official plugins are available:
 
-```bash
-npm run dev --prefix client
-```
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-Vite will print the URL (usually `http://localhost:5173`, but it may pick another port if busy).
+## React Compiler
 
-## MongoDB (optional but recommended)
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-- If MongoDB is **not** running, the API will still work using an in-memory fallback for projects.
-- If you have MongoDB running locally, set `server/.env`:
+## Expanding the ESLint configuration
 
-```
-MONGODB_URI=mongodb://127.0.0.1:27017/rolldeckpro
-```
-
-Then seed the database:
-
-```bash
-powershell -NoProfile -Command "Invoke-RestMethod -Method Post http://localhost:5000/api/projects/seed | ConvertTo-Json"
-```
-
-## Key endpoints
-
-- `GET /api/health`
-- `GET /api/projects`
-- `POST /api/projects/seed`
-
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
