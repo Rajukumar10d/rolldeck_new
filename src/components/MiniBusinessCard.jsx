@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
-import rolldeckback from "../assets/rolldeck-back.png";
-import rolldeckfront from "../assets/rolldeck-front.png";
+import frontImg from "../assets/rolldeck-card-front.png";
+import backImg from "../assets/rolldeck-card-back.png";
 
 export default function MiniBusinessCard() {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -21,21 +21,20 @@ export default function MiniBusinessCard() {
 
     gsap.to(wrapper, {
       rotationY: isFlipped ? 180 : 0,
-      duration: 0.6,
+      duration: 0.8,
       ease: "power2.inOut",
+      transformPerspective: 1000
     });
 
     const onMouseMove = (e) => {
       const rect = wrapper.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-      const x = (e.clientX - centerX) / (rect.width / 2);
-      const y = (e.clientY - centerY) / (rect.height / 2);
+      const x = (e.clientX - (rect.left + rect.width / 2)) / (rect.width / 2);
+      const y = (e.clientY - (rect.top + rect.height / 2)) / (rect.height / 2);
 
       gsap.to(wrapper, {
-        rotationY: isFlipped ? 180 + x * 6 : x * 6,
-        rotationX: -y * 6,
-        duration: 0.3,
+        rotationY: isFlipped ? 180 + x * 10 : x * 10,
+        rotationX: -y * 10,
+        duration: 0.4,
         ease: "power2.out",
       });
     };
@@ -44,7 +43,7 @@ export default function MiniBusinessCard() {
       gsap.to(wrapper, {
         rotationY: isFlipped ? 180 : 0,
         rotationX: 0,
-        duration: 0.4,
+        duration: 0.6,
         ease: "power2.out",
       });
     };
@@ -60,39 +59,41 @@ export default function MiniBusinessCard() {
 
   return (
     <div
-      className="relative w-16 h-10 cursor-pointer"
-      style={{ perspective: "1000px" }}
+      className="relative w-[100px] h-[60px] cursor-pointer interactive group"
       onClick={() => setIsFlipped(!isFlipped)}
     >
       <div
         ref={wrapperRef}
-        className="relative w-full h-full rounded-sm shadow-lg"
+        className="relative w-full h-full rounded-md shadow-2xl border border-white/10"
         style={{ transformStyle: "preserve-3d" }}
       >
+        {/* Shine Layer */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-tr from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
         {/* Front */}
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 backface-hidden z-[2] rounded-md overflow-hidden"
           style={{ backfaceVisibility: "hidden" }}
         >
           <img
-            src={rolldeckfront}
-            alt="ROLLDECK Card Front"
-            className="w-full h-full object-cover rounded-sm"
+            src={frontImg}
+            alt="Business Card Front"
+            className="w-full h-full object-cover select-none"
           />
         </div>
 
         {/* Back */}
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 backface-hidden bg-[#050505] rounded-md overflow-hidden"
           style={{
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
           }}
         >
           <img
-            src={rolldeckback}
-            alt="ROLLDECK Card Back"
-            className="w-full h-full object-cover rounded-sm"
+            src={backImg}
+            alt="Business Card Back"
+            className="w-full h-full object-cover select-none"
           />
         </div>
       </div>
