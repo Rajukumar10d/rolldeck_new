@@ -15,7 +15,6 @@ import ClientStories from "../components/ClientStories";
 import toothworld from "../assets/tooth-world.png";
 import krishna from "../assets/krishna-juice.jpg";
 import burgersignature from "../assets/burger-signature.png";
-
 gsap.registerPlugin(ScrollTrigger);
 
 const projectsData = [
@@ -26,7 +25,7 @@ const projectsData = [
     image: toothworld,
     description: "Architecting a high-authority digital presence for a premier dental clinic. Focused on appointment-driven growth and patient trust through premium aesthetic execution.",
     stats: "200% Booking Growth",
-    year: "2023",
+    year: "2026",
     tech: ["Next.js", "GSAP", "Framer"],
     challenge: "Low-trust legacy website.",
     link: "/projects/tooth-world"
@@ -38,7 +37,7 @@ const projectsData = [
     image: krishna,
     description: "Bridging traditional retail with modern efficiency. Developed a custom E-commerce engine and menu system designed for high-volume local order automation.",
     stats: "15k+ Monthly Orders",
-    year: "2023",
+    year: "2026",
     tech: ["React", "Firebase", "WhatsApp API"],
     challenge: "Manual order management bottlenecks.",
     link: "/projects/krishna-juice"
@@ -50,7 +49,7 @@ const projectsData = [
     image: burgersignature,
     description: "Defining the visual language of a premium burger franchise. A dark, bold aesthetic combined with a standardized menu ecosystem for national scaling.",
     stats: "Brand Cohesion 100%",
-    year: "2024",
+    year: "2027",
     tech: ["Branding", "UI/UX", "Strategic Motion"],
     challenge: "Inconsistent franchise identity.",
     link: "/projects/burger-signature"
@@ -62,7 +61,7 @@ const projectsData = [
     image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2564",
     description: "High-latency data visualizer for institutional traders. Integrating real-time market prediction models into a clean, lightning-fast B2B trading dashboard.",
     stats: "90ms Data Latency",
-    year: "2025",
+    year: "2027",
     tech: ["Next.js", "D3.js", "WebSockets"],
     challenge: "Data overload and visualization lag.",
     link: "/projects/omnitrade"

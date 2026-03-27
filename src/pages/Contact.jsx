@@ -234,8 +234,8 @@ export default function Contact() {
                 <form className="space-y-16" onSubmit={handleSubmit}>
                    <div className="space-y-10">
                       {[
-                        { id: "name", label: "01. Protocol.ID", type: "text", pl: "Vatsal Koriya (Founder)" },
-                        { id: "email", label: "02. Signal.Point", type: "email", pl: "vatsal@rolldeck.studio" }
+                        { id: "name", label: "01. Protocol.ID", type: "text", pl: "Full Legal Name" },
+                        { id: "email", label: "02. Signal.Point", type: "email", pl: "rolldeckinfo@gmail.com" }
                       ].map(field => (
                         <div key={field.id} className="premium-input-group">
                            <label className="text-[10px] uppercase tracking-[0.4em] text-white/30 block mb-6 font-black">{field.label}</label>

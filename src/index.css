@@ -834,21 +834,14 @@ img, video {
   border-bottom: none !important;
 }
 
-.stroke-text {
-  -webkit-text-stroke: 1px rgba(255,255,255,0.2);
-  color: transparent;
-}
+
 
 /* ── FOOTER STROKE TEXT ── */
 .stroke-text-footer {
   -webkit-text-stroke: 1px rgba(255,255,255,0.06);
 }
 
-/* Global Selection */
-::selection {
-  background: #fff;
-  color: #000;
-}
+
 
 /* Smooth Body Overlay for Grain — GPU optimized */
 body::after {
