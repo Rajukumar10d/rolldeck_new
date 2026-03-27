@@ -18,13 +18,16 @@ input:-webkit-autofill:focus {
   transition: background-color 5000s ease-in-out 0s;
 }
 
-/* --- Premium Tokens & Layout --- */
+/* --- Mission Control Grid --- */
 .contact-hub-grid {
+  position: absolute;
+  inset: 0;
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), 
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
-  mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+    linear-gradient(rgba(255, 85, 0, 0.1) 1.5px, transparent 1.5px), 
+    linear-gradient(90deg, rgba(255, 85, 0, 0.1) 1.5px, transparent 1.5px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(circle at center, black 10%, transparent 90%);
+  opacity: 0.3;
 }
 
 .contact-hub-pulse {
@@ -39,14 +42,6 @@ input:-webkit-autofill:focus {
 @keyframes hub-pulse {
   0%, 100% { transform: scale(0.8); opacity: 0.3; }
   50% { transform: scale(1.2); opacity: 0.8; }
-}
-
-.contact-glow-orb {
-  filter: blur(80px);
-  border-radius: 50%;
-  pointer-events: none;
-  opacity: 0.4;
-  mix-blend-mode: plus-lighter;
 }
 
 /* Glass Card */
@@ -136,20 +131,6 @@ input:-webkit-autofill:focus {
   0% { opacity: 0; transform: translateY(30px); }
   100% { opacity: 1; transform: translateY(0); }
 }
-
-/* --- Mission Control Grid --- */
-
-.contact-hub-grid {
-  position: absolute;
-  inset: 0;
-  background-image: 
-    linear-gradient(rgba(255, 85, 0, 0.08) 1.5px, transparent 1.5px), 
-    linear-gradient(90deg, rgba(255, 85, 0, 0.08) 1.5px, transparent 1.5px);
-  background-size: 80px 80px;
-  mask-image: radial-gradient(circle at center, black 10%, transparent 90%);
-  opacity: 0.3;
-}
-
 
 .mission-card {
   border-left: 4px solid #ff5500;
