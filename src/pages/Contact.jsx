@@ -152,8 +152,8 @@ export default function Contact() {
          <div className="h-full bg-orange-600 transition-all duration-300 shadow-[0_0_20px_rgba(255,85,0,0.8)]" style={{ width: `${formProgress}%` }} />
       </div>
 
-      <div className="container relative z-10 flex-1 flex flex-col justify-center pb-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-start">
+      <div className="container relative z-10 flex-1 flex flex-col justify-center pb-16 lg:pb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-start">
 
           {/* ── LEFT: MISSION PARAMETERS ── */}
           <div className="contact-left space-y-24">
@@ -162,7 +162,7 @@ export default function Contact() {
                  <span className="w-16 h-[2px] bg-orange-600 group-hover:w-24 transition-all duration-700"></span>
                  <span className="text-[10px] uppercase tracking-[0.8em] text-white/40 font-black animate-pulse">Core Connection</span>
               </div>
-              <h1 className="text-7xl md:text-[11.5rem] font-black uppercase leading-[0.8] tracking-tighter">
+              <h1 className="text-5xl md:text-7xl lg:text-[11.5rem] font-black uppercase leading-[0.8] tracking-tighter">
                 <span className="block hero-line">Initialize</span>
                 <span className="block italic text-transparent stroke-text hero-line" style={{ WebkitTextStroke: "1.5px #ff5500" }}>Mission.</span>
               </h1>
@@ -298,7 +298,7 @@ export default function Contact() {
       <section className="py-56 border-y border-white/5 bg-[#030303] relative overflow-hidden">
          <div className="contact-hub-grid absolute inset-0 -z-10 opacity-20" />
          <div className="container hub-content relative">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
                <div className="space-y-16 relative">
                   <div className="absolute -top-20 -left-10 w-40 h-40 bg-orange-600/10 blur-[60px] rounded-full" />
                   <div className="inline-flex items-center gap-8 px-8 py-4 bg-white/[0.03] border border-white/10 rounded-full backdrop-blur-3xl reveal">
@@ -307,7 +307,7 @@ export default function Contact() {
                      </div>
                      <span className="text-[10px] uppercase tracking-[0.5em] font-black text-white/60">Node Location: Jaipur Sector</span>
                   </div>
-                  <h2 className="text-6xl lg:text-9xl font-black uppercase tracking-tighter leading-tight reveal">
+                  <h2 className="text-5xl md:text-6xl lg:text-9xl font-black uppercase tracking-tighter leading-tight reveal">
                      Studio <br />
                      <span className="text-orange-600">Hub.</span>
                   </h2>
@@ -316,7 +316,7 @@ export default function Contact() {
                   </p>
                </div>
 
-               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
+               <div className="grid grid-cols-2 gap-4 md:gap-8 reveal">
                   {[
                     { l: "Time Sync", v: currentTime, sub: "IST Active" },
                     { l: "Mission Rate", v: "24h Avg", sub: "Core Sync" },

@@ -24,18 +24,22 @@
 /* Smooth default font */
 html, body { font-family: theme('fontFamily.sans'); }
 
-
-
 /* --- Root Variables for easy changes --- */
 :root {
-  --bg-dark: #050505; /* Deep, near-black for high contrast */
+  --bg-dark: #050505;
   --accent: #ffffff;
-  --brand: #ff5500; /* Signature premium orange */
+  --brand: #ff5500;
   --brand-light: #ff7733;
   --muted: rgba(255, 255, 255, 0.4);
   --glass: rgba(255, 255, 255, 0.03);
   --border: rgba(255, 255, 255, 0.08);
   --ease: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -44,6 +48,34 @@ body {
   font-family: 'Inter', sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* Accessibility: Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* GPU-accelerated image rendering */
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Touch target minimum 44px for mobile */
+@media (pointer: coarse) {
+  a, button {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }
 
 
@@ -689,45 +721,49 @@ body {
   .services-top-sub { text-align: left; max-width: 100%; }
   .service-item { flex-direction: column; align-items: flex-start; gap: 1rem; }
   .service-item-left { min-width: 0; }
-  
   .home-hero-title { font-size: clamp(3rem, 10vw, 6rem); }
 }
 
 @media (max-width: 768px) {
   section { padding: 10vh 0; }
   .about-hero-section { padding: 8rem 0 4rem; }
-  .about-hero-heading { font-size: 3rem; }
-  .founders-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  .about-hero-heading { font-size: 3rem; line-height: 0.95; }
+  .founders-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1px; }
   .services-list { gap: 0; }
-  
+  .hero-btn-premium { padding: 0.85rem 2rem; font-size: 0.8rem; }
   .home-hero-kicker { margin-bottom: 1rem; font-size: 9px; }
-  .hero-card-container { transform: scale(0.85); transform-origin: center; }
+  .hero-card-container { transform: scale(0.8); transform-origin: center; }
   .home-service-card { padding: 2rem; }
-  
   .diff-card { padding: 2rem; }
   .cta-section h2 { font-size: 4rem; }
+  .section-header { margin-bottom: 3rem; }
+  .section-title { font-size: clamp(1.6rem, 6vw, 2.5rem); }
+  .founder-card { padding: 2rem 1.5rem; border-radius: 1.5rem; }
+  .founder-avatar-container { width: 120px; height: 120px; margin-bottom: 1.5rem; }
+  .founder-avatar { width: 100px; height: 100px; }
+  .founder-name { font-size: 1.15rem; }
+  .founder-bio { font-size: 0.8rem; }
 }
 
 @media (max-width: 640px) {
-  .home-hero-title { font-size: 3.5rem; }
+  .home-hero-title { font-size: 3.2rem; }
   .home-hero-title .block { line-height: 1; }
-  .about-hero-heading { font-size: 2.5rem; }
-  
-  /* Make client logos more visible on mobile */
+  .about-hero-heading { font-size: 2.4rem; }
   .client-logo-item span { color: rgba(255,255,255,0.4); font-size: 12px; }
-  
-  /* Fix budget pills visibility */
   .contact-form-wrapper .flex-wrap button { padding: 0.5rem 1rem; font-size: 8px; }
+  .hero-cta-row { flex-direction: column; gap: 0.75rem; }
+  .hero-cta-row a { width: 100%; justify-content: center; text-align: center; }
 }
 
 @media (max-width: 480px) {
   .stats-grid { grid-template-columns: 1fr; }
-  .stat-value { font-size: 3rem; }
-  .home-hero-title { font-size: 2.8rem; }
-  .about-hero-sub { font-size: 0.95rem; }
-  
+  .stat-value { font-size: 2.6rem; }
+  .home-hero-title { font-size: 2.6rem; }
+  .about-hero-sub { font-size: 0.9rem; }
   .container { padding: 0 6%; }
+  .about-hero-section { padding: 6rem 0 3rem; }
+  .section-kicker { font-size: 9px; letter-spacing: 0.3em; }
 }
 
 /* 3D Utility Classes */
@@ -788,6 +824,10 @@ body {
   cursor: none !important;
 }
 
+@media (pointer: coarse) {
+  .interactive { cursor: pointer !important; }
+}
+
 /* ── CTA SECTION ── */
 .cta-section {
   position: relative;
@@ -810,7 +850,7 @@ body {
   color: #000;
 }
 
-/* Smooth Body Overlay for Grain */
+/* Smooth Body Overlay for Grain — GPU optimized */
 body::after {
   content: "";
   position: fixed;
@@ -819,6 +859,8 @@ body::after {
   opacity: 0.04;
   pointer-events: none;
   z-index: 10000;
+  will-change: auto;
+  contain: strict;
 }
 
 .animate-spin-slow {

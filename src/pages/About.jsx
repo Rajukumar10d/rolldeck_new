@@ -95,9 +95,9 @@ const coreValues = [
 ];
 
 const stats = [
-  { value: "3+", label: "Years of Excellence" },
-  { value: "50+", label: "Projects Delivered" },
-  { value: "30+", label: "Happy Clients" },
+  { value: "EST", label: "Founded 2026" },
+  { value: "15+", label: "Projects Delivered" },
+  { value: "10+", label: "Happy Clients" },
   { value: "100%", label: "Client Satisfaction" }
 ];
 
@@ -230,7 +230,7 @@ export default function About() {
                   <div className="w-[350px] h-[350px] border-2 border-dashed border-orange-500/20 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-spin-slow duration-[30s]" />
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
                     <span className="text-8xl font-black italic tracking-tighter text-white/5 group-hover/orbit:text-white/20 transition-all duration-1000">EST.</span>
-                    <span className="block text-4xl font-black text-orange-500 mt-2">2022</span>
+                    <span className="block text-4xl font-black text-orange-500 mt-2">2026</span>
                   </div>
                </div>
             </div>
@@ -301,7 +301,7 @@ export default function About() {
                   <div className={`founder-avatar relative z-10 w-48 h-48 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-orange-500/40 transition-all duration-1000 bg-gradient-to-br ${founder.gradient} flex items-center justify-center p-1`}>
                     <div className="w-full h-full rounded-full overflow-hidden bg-bg-dark flex items-center justify-center">
                        {founder.image ? (
-                         <img src={founder.image} alt={founder.name} className="w-full h-full object-cover group-hover:scale-115 transition-transform duration-1000 grayscale group-hover:grayscale-0 opacity-80 group-hover:opacity-100" />
+                         <img src={founder.image} alt={founder.name} loading="lazy" className="w-full h-full object-cover group-hover:scale-115 transition-transform duration-1000 grayscale group-hover:grayscale-0 opacity-80 group-hover:opacity-100" />
                        ) : (
                          <span className="founder-initials text-6xl font-black text-white italic group-hover:scale-125 transition-transform duration-1000">{founder.initials}</span>
                        )}

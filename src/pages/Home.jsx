@@ -90,9 +90,9 @@ const homeFaqs = [
 ];
 
 const heroStats = [
-  { value: 50, suffix: "+", label: "Projects Delivered" },
-  { value: 30, suffix: "+", label: "Happy Clients" },
-  { value: 3, suffix: "+", label: "Years of Excellence" },
+  { value: 15, suffix: "+", label: "Projects Delivered" },
+  { value: 10, suffix: "+", label: "Happy Clients" },
+  { value: 1, suffix: "", label: "Year of Excellence" },
   { value: 100, suffix: "%", label: "Client Satisfaction" }
 ];
 
